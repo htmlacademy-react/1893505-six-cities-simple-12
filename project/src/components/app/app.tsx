@@ -1,11 +1,11 @@
-import { Main } from '../../pages/Main/Main';
+import { Main } from '../../pages/main/main';
 
 type AppProps = {
-  offerCount: number;
+  placesCount: number;
 }
 
-function App({offerCount}: AppProps): JSX.Element {
-  return <Main offerCount={offerCount}/>;
+function App({placesCount}: AppProps): JSX.Element {
+  return <Main placesCount={placesCount}/>;
 }
 
 export default App;
