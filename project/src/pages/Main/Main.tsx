@@ -1,10 +1,12 @@
-import { PlaceCard } from '../../components/place-card/place-card';
+import { OffersList } from '../../components/offers-list/offers-list';
+import { Offer } from '../../mocks/offers';
 
 type MainProps = {
   placesCount: number;
+  offers: Offer[];
 }
 
-export function Main({placesCount}: MainProps): JSX.Element {
+export function Main({placesCount, offers}: MainProps): JSX.Element {
 
   return (
     <div className="page page--gray page--main">
@@ -93,13 +95,7 @@ export function Main({placesCount}: MainProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-                <PlaceCard/>
-
+                <OffersList offers={offers}/>
               </div>
             </section>
             <div className="cities__right-section">
