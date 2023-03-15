@@ -1,4 +1,4 @@
-import { OffersList } from '../../components/offers-list1/offers-list1';
+import { OffersList } from '../../components/offers-list/offers-list';
 import { Offer } from '../../mocks/offers';
 
 type MainProps = {

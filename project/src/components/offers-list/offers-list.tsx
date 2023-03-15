@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Offer } from '../../mocks/offers';
-import { PlaceCard } from '../place-card1/place-card1';
+import { PlaceCard } from '../place-card/place-card';
 
 type OffersListProps = {
   offers: Offer[];
@@ -9,6 +9,8 @@ type OffersListProps = {
 export function OffersList({offers}: OffersListProps): JSX.Element {
 
   const [activeOfferId, setActiveOfferId] = useState<number>(-1);
+  //eslint-disable-next-line no-console
+  console.log(activeOfferId);
 
   return (
     <>
