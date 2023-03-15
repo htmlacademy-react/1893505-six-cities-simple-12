@@ -2,39 +2,40 @@ import { Link } from 'react-router-dom';
 import { Offer } from '../../mocks/offers';
 
 type PlaceCardProps = {
-  offers: Offer;
+  offer: Offer;
+  setActiveOfferId: (activeOfferId: number) => void;
 };
 
-export function PlaceCard({offers}: PlaceCardProps): JSX.Element {
+export function PlaceCard({offer, setActiveOfferId}: PlaceCardProps): JSX.Element {
   return (
-    <article className="cities__card place-card">
-      {offers.isPremium ?
+    <article className="cities__card place-card" onMouseOver={() => setActiveOfferId(offer.id)} onMouseOut={() => setActiveOfferId(-1)}>
+      {offer.isPremium ?
         <div className="place-card__mark">
           <span>Premium</span>
         </div> : ''}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={offers.img} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={offer.img[0]} width="260" height="200" alt="Place image"/>
         </a>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{offers.price}</b>
+            <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
 
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${offers.rating / 0.05}%`}}></span>
+            <span style={{width: `${offer.rating / 0.05}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/${offers.id}`}>{offers.title}</Link>
+          <Link to={`/offer/${offer.id}`}>{offer.title}</Link>
         </h2>
-        <p className="place-card__type">{offers.type}</p>
+        <p className="place-card__type">{offer.type}</p>
       </div>
     </article>
   );

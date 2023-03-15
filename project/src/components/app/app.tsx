@@ -1,8 +1,8 @@
-import { Main } from '../../pages/main/main';
+import { Main } from '../../pages/main1/main1';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppRoute } from '../../const';
-import { Login } from '../../pages/login/login';
-import { Room } from '../../pages/room/room';
+import { Login } from '../../pages/login1/login1';
+import { Room } from '../../pages/room1/room1';
 import { ErrorPage } from '../../pages/error-page/error-page';
 import { Offer } from '../../mocks/offers';
 
