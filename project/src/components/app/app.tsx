@@ -4,18 +4,20 @@ import { AppRoute } from '../../const';
 import { Login } from '../../pages/login/login';
 import { Room } from '../../pages/room/room';
 import { ErrorPage } from '../../pages/error-page/error-page';
+import { Offer } from '../../mocks/offers';
 
 type AppProps = {
   placesCount: number;
+  offers: Offer[];
 }
 
-function App({placesCount}: AppProps): JSX.Element {
+function App({placesCount, offers}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<Main placesCount={placesCount} />}
+          element={<Main placesCount={placesCount} offers={offers}/>}
         />
         <Route
           path={AppRoute.Login}
@@ -23,7 +25,7 @@ function App({placesCount}: AppProps): JSX.Element {
         />
         <Route
           path={AppRoute.Room}
-          element={<Room />}
+          element={<Room/>}
         />
         <Route
           path="*"
