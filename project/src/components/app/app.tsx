@@ -4,7 +4,7 @@ import { AppRoute } from '../../const';
 import { Login } from '../../pages/login/login';
 import { Room } from '../../pages/room/room';
 import { ErrorPage } from '../../pages/error-page/error-page';
-import { Offer } from '../../mocks/offers';
+import { Offer } from '../../types/offer';
 
 type AppProps = {
   placesCount: number;

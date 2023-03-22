@@ -1,24 +1,6 @@
-export type Offer = {
-  id: number;
-  img: string[];
-  description: string;
-  isPremium: boolean;
-  bedrooms: number;
-  price: number;
-  title: string;
-  type: string;
-  rating: number;
-  maxAdults: number;
-  goods: string[];
-  host: {
-    id: number;
-    avatarUrl: string;
-    name: string;
-    isPro: boolean;
-  };
-};
+import { Offer } from '../types/offer';
 
-export const offers = [
+export const offers: Offer[] = [
   {
     id: 1,
     img: [
@@ -42,11 +24,23 @@ export const offers = [
       name: 'Angelina',
       isPro: true,
     },
+    city: {
+      location: {
+        lng: 4.897976,
+        lat: 52.37454,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
+    location: {
+      lat: 52.3909553943508,
+      lng: 4.85309666406198,
+      zoom: 10,
+    },
   },
   {
     id: 2,
     img: [
-      'img/apartment-01.jpg',
       'img/apartment-02.jpg',
       'img/apartment-03.jpg',
     ],
@@ -65,6 +59,19 @@ export const offers = [
       avatarUrl: 'img/avatar-angelina.jpg',
       name: 'Angelina',
       isPro: false,
+    },
+    city: {
+      location: {
+        lng: 4.897976,
+        lat: 52.37454,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
+    location: {
+      lat: 52.3609553943508,
+      lng: 4.85309666406198,
+      zoom: 10,
     },
   },
   {
@@ -88,10 +95,23 @@ export const offers = [
       name: 'Angelina',
       isPro: false,
     },
+    city: {
+      location: {
+        lng: 4.897976,
+        lat: 52.37454,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
+    location: {
+      lat: 52.3909553943508,
+      lng: 4.929309666406198,
+      zoom: 10,
+    },
   },
   {
     id: 4,
-    img: ['img/studio-photos.jpg'],
+    img: ['img/apartment-03.jpg'],
     title: 'Nice, cozy, warm big bed apartment',
     description:
     'Mauris hendrerit eros non varius tempus. Sed a arcu est.',
@@ -107,6 +127,19 @@ export const offers = [
       avatarUrl: 'img/avatar-angelina.jpg',
       name: 'Angelina',
       isPro: false,
+    },
+    city: {
+      location: {
+        lng: 4.897976,
+        lat: 52.37454,
+        zoom: 10,
+      },
+      name: 'Amsterdam',
+    },
+    location: {
+      lat: 52.3809553943508,
+      lng: 4.939309666406198,
+      zoom: 10,
     },
   },
 ];

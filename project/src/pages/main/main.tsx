@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { OffersList } from '../../components/offers-list/offers-list';
-import { Offer } from '../../mocks/offers';
+import { Offer } from '../../types/offer';
+import { Map } from '../../components/map/map';
+import { Cities } from '../../mocks/cities';
 
 type MainProps = {
   placesCount: number;
@@ -7,6 +10,8 @@ type MainProps = {
 }
 
 export function Main({placesCount, offers}: MainProps): JSX.Element {
+
+  const [activeOfferId, setActiveOfferId] = useState<number>(1);
 
   return (
     <div className="page page--gray page--main">
@@ -95,11 +100,13 @@ export function Main({placesCount, offers}: MainProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OffersList offers={offers}/>
+                <OffersList offers={offers} setActiveOfferId={setActiveOfferId}/>
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map city={Cities[3]} offers={offers} activeOfferId={activeOfferId}/>
+              </section>
             </div>
           </div>
         </div>

@@ -1,16 +1,12 @@
-import { useState } from 'react';
-import { Offer } from '../../mocks/offers';
+import { Offer } from '../../types/offer';
 import { PlaceCard } from '../place-card/place-card';
 
 type OffersListProps = {
   offers: Offer[];
+  setActiveOfferId: (activeOfferId: number) => void;
 }
 
-export function OffersList({offers}: OffersListProps): JSX.Element {
-
-  const [activeOfferId, setActiveOfferId] = useState<number>(-1);
-  //eslint-disable-next-line no-console
-  console.log(activeOfferId);
+export function OffersList({offers, setActiveOfferId}: OffersListProps): JSX.Element {
 
   return (
     <>
