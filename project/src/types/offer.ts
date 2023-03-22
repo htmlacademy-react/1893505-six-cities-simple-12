@@ -18,15 +18,15 @@ export type Offer = {
   };
   city: {
     location: {
-      lat: number,
-      lng: number,
-      zoom: number,
-    },
-    name: string,
-  },
+      lat: number;
+      lng: number;
+      zoom: number;
+    };
+    name: string;
+  };
   location: {
-    lat: number,
-    lng: number,
-    zoom: number,
-  },
+    lat: number;
+    lng: number;
+    zoom: number;
+  };
 };
