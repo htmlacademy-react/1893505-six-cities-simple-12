@@ -17,7 +17,7 @@ export const offers: Offer[] = [
     bedrooms: 3,
     maxAdults: 4,
     price: 120,
-    goods: ['Heating', 'Coffee machine', 'Kitchen'],
+    goods: ['Heating', 'Coffee machine', 'Kitchen', 'Wasching machine', 'Baby seat', 'Dishwasher', 'Wi-Fi', 'Cabel TV'],
     host: {
       id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
@@ -53,7 +53,7 @@ export const offers: Offer[] = [
     bedrooms: 2,
     maxAdults: 2,
     price: 80,
-    goods: ['Wifi', 'Heating', 'Kitchen'],
+    goods: ['Wifi', 'Heating', 'Kitchen', 'Wasching machine'],
     host: {
       id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
@@ -88,7 +88,7 @@ export const offers: Offer[] = [
     bedrooms: 1,
     maxAdults: 3,
     price: 130,
-    goods: ['Heating', 'Kitchen', 'Cable TV'],
+    goods: ['Heating', 'Kitchen', 'Cable TV', 'Kitchen', 'Wasching machine', 'Fridge', 'Wi-Fi'],
     host: {
       id: 1,
       avatarUrl: 'img/avatar-angelina.jpg',
