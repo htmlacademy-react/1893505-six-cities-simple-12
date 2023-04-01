@@ -7,5 +7,5 @@ export type ReviewType = {
     id: number;
     avatarUrl: string;
     name: string;
-  }
+  };
 };
