@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import {useRef, useEffect} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
@@ -18,14 +18,14 @@ export function Map({city, offers, activeOfferId}: MapProps) {
 
   const defaultCustomIcon = leaflet.icon({
     iconUrl: URL_MARKER_DEFAULT,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
+    iconSize: [27, 39],
+    iconAnchor: [14, 39],
   });
 
   const currentCustomIcon = leaflet.icon({
     iconUrl: URL_MARKER_CURRENT,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
+    iconSize: [27, 39],
+    iconAnchor: [14, 39],
   });
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export function Map({city, offers, activeOfferId}: MapProps) {
 
   return (
     <div
-      style={{height: '500px'}}
+      style={{height: '600px'}}
       ref={mapRef}
     >
     </div>
