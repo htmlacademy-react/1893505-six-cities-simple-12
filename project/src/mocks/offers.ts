@@ -142,4 +142,70 @@ export const offers: Offer[] = [
       zoom: 10,
     },
   },
+  {
+    id: 5,
+    img: ['img/apartment-03.jpg'],
+    title: 'Nice, cozy, warm big bed apartment',
+    description:
+    'Mauris hendrerit eros non varius tempus. Sed a arcu est.',
+    isPremium: false,
+    type: 'Studio',
+    rating: 4.5,
+    bedrooms: 2,
+    maxAdults: 3,
+    price: 180,
+    goods: ['Heating', 'Kitchen', 'Cable TV'],
+    host: {
+      id: 1,
+      avatarUrl: 'img/avatar-angelina.jpg',
+      name: 'Angelina',
+      isPro: false,
+    },
+    city: {
+      location: {
+        lng: 2.351499,
+        lat: 48.85661,
+        zoom: 10,
+      },
+      name: 'Paris',
+    },
+    location: {
+      lng: 2.351499,
+      lat: 48.85661,
+      zoom: 10,
+    },
+  },
+  {
+    id: 6,
+    img: ['img/apartment-03.jpg'],
+    title: 'Nice, cozy, warm big bed apartment',
+    description:
+    'Mauris hendrerit eros non varius tempus. Sed a arcu est.',
+    isPremium: false,
+    type: 'Studio',
+    rating: 4.5,
+    bedrooms: 2,
+    maxAdults: 3,
+    price: 180,
+    goods: ['Heating', 'Kitchen', 'Cable TV'],
+    host: {
+      id: 1,
+      avatarUrl: 'img/avatar-angelina.jpg',
+      name: 'Angelina',
+      isPro: false,
+    },
+    city: {
+      location: {
+        lng: 4.897976,
+        lat: 52.37454,
+        zoom: 10,
+      },
+      name: 'Cologne',
+    },
+    location: {
+      lat: 52.3809553943508,
+      lng: 4.939309666406198,
+      zoom: 10,
+    },
+  }
 ];

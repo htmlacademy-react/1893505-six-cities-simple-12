@@ -7,17 +7,16 @@ import { ErrorPage } from '../../pages/error-page/error-page';
 import { Offer } from '../../types/offer';
 
 type AppProps = {
-  placesCount: number;
   offers: Offer[];
 }
 
-function App({placesCount, offers}: AppProps): JSX.Element {
+function App({offers}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<Main placesCount={placesCount} offers={offers}/>}
+          element={<Main offers={offers}/>}
         />
         <Route
           path={AppRoute.Login}
