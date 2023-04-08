@@ -1,5 +1,5 @@
 import {useRef, useEffect} from 'react';
-import leaflet from 'leaflet';
+import leaflet, { Marker } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
@@ -30,14 +30,28 @@ export function Map({city, offers, activeOfferId}: MapProps) {
 
   useEffect(() => {
     if (map) {
+      map.flyTo(
+        [city.lat, city.lng],
+        city.zoom,
+        { animate: true, duration: 2 }
+      );
+    }
+  }, [map, city]);
+
+  useEffect(() => {
+    if (map) {
       offers.forEach((offer) => {
-        leaflet
-          .marker({
-            lat: offer.location.lat,
-            lng: offer.location.lng,
-          }, {
-            icon: activeOfferId && offer.id === activeOfferId ? currentCustomIcon : defaultCustomIcon,
-          })
+        const marker = new Marker({
+          lat: offer.location.lat,
+          lng: offer.location.lng,
+        });
+
+        marker
+          .setIcon(
+            activeOfferId && offer.id === activeOfferId
+              ? currentCustomIcon
+              : defaultCustomIcon
+          )
           .addTo(map);
       });
     }
