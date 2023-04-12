@@ -15,7 +15,7 @@ export function PlaceCard({offer, setActiveOfferId}: PlaceCardProps): JSX.Elemen
         </div> : ''}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to={`/offer/${offer.id}`}>
-          <img className="place-card__image" src={offer.img[0]} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={offer.images[0]} width="260" height="200" alt="Place image"/>
         </Link>
       </div>
       <div className="place-card__info">

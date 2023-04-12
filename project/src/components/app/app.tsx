@@ -4,19 +4,29 @@ import { AppRoute } from '../../const';
 import { Login } from '../../pages/login/login';
 import { Room } from '../../pages/room/room';
 import { ErrorPage } from '../../pages/error-page/error-page';
-import { Offer } from '../../types/offer';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { store } from '../../store';
+import { Spinner } from '../spinner/spinner';
 
-type AppProps = {
-  offers: Offer[];
-}
+function App(): JSX.Element {
+  const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
 
-function App({offers}: AppProps): JSX.Element {
+  const isOffersLoading = useAppSelector(
+    (state) => state.isOffersLoading
+  );
+
+  if (
+    isOffersLoading
+  ) {
+    return <Spinner />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<Main offers={offers}/>}
+          element={<Main />}
         />
         <Route
           path={AppRoute.Login}
