@@ -3,22 +3,25 @@ import { useParams } from 'react-router-dom';
 import { ReviewForm } from '../../components/review-form/review-form';
 import { ReviewList } from '../../components/review-list/review-list';
 import { Offer } from '../../types/offer';
-import { offers } from '../../mocks/offers';
 import { PropertyItem } from '../../components/property-item/property-item';
 import { OffersList } from '../../components/offers-list/offers-list';
 import { Map } from '../../components/map/map';
 import { Cities } from '../../mocks/cities';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { store } from '../../store';
 
 export function Room(): JSX.Element {
 
+  const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
   const { id } = useParams();
   const [room, setRoom] = useState<Offer>();
   const [offersList, setOffersList] = useState<Offer[]>([]);
   const [activeOfferId, setActiveOfferId] = useState<number | null>(null);
+  const currOffers = useAppSelector((state) => state.currentOffers);
 
   useEffect(() => {
-    setRoom(offers.find((offer) => offer.id === Number(id)));
-    setOffersList(offers.slice(1));
+    setRoom(currOffers.find((offer) => offer.id === Number(id)));
+    setOffersList(currOffers.slice(1));
   }, []);
 
   if (!room) {

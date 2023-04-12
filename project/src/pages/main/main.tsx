@@ -1,28 +1,24 @@
 import { useEffect, useState } from 'react';
 import { OffersList } from '../../components/offers-list/offers-list';
-import { Offer } from '../../types/offer';
 import { Map } from '../../components/map/map';
 import { CitiesList } from '../../components/cities-list/cities-list';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import {store} from '../../store/index';
-import { addRentOffers, changeCity } from '../../store/action';
+import { addCurrentOffers, changeCity } from '../../store/action';
 import { City } from '../../types/city';
 import { SortOptions } from '../../components/sort-options/sort-options';
 
-type MainProps = {
-  offers: Offer[];
-}
-
-export function Main({offers}: MainProps): JSX.Element {
+export function Main(): JSX.Element {
   const useAppDispatch = () => useDispatch<typeof store.dispatch>();
   const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
   const currCity = useAppSelector((state) => state.city);
-  const currOffers = useAppSelector((state) => state.offers);
+  const allOffers = useAppSelector((state) => state.offers);
+  const currOffers = useAppSelector((state) => state.currentOffers);
   const dispatch = useAppDispatch();
   const [activeOfferId, setActiveOfferId] = useState<number>(1);
 
   useEffect(() => {
-    dispatch(addRentOffers(offers.filter((offer) => offer.city.name === currCity.name)));
+    dispatch(addCurrentOffers(allOffers.filter((offer) => offer.city.name === currCity.name)));
   }, [currCity]);
 
   const onChangeCity = (city: City) => {

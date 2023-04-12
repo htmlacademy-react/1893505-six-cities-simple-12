@@ -1,6 +1,6 @@
 export type Offer = {
   id: number;
-  img: string[];
+  images: string[];
   description: string;
   isPremium: boolean;
   bedrooms: number;
@@ -18,15 +18,15 @@ export type Offer = {
   };
   city: {
     location: {
-      lat: number;
-      lng: number;
+      latitude: number;
+      longitude: number;
       zoom: number;
     };
     name: string;
   };
   location: {
-    lat: number;
-    lng: number;
+    latitude: number;
+    longitude: number;
     zoom: number;
   };
 };

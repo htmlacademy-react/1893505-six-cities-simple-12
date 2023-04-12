@@ -31,7 +31,7 @@ export function Map({city, offers, activeOfferId}: MapProps) {
   useEffect(() => {
     if (map) {
       map.flyTo(
-        [city.lat, city.lng],
+        [city.latitude, city.longitude],
         city.zoom,
         { animate: true, duration: 2 }
       );
@@ -40,10 +40,10 @@ export function Map({city, offers, activeOfferId}: MapProps) {
 
   useEffect(() => {
     if (map) {
-      offers.forEach((offer) => {
+      offers.forEach((offer: Offer) => {
         const marker = new Marker({
-          lat: offer.location.lat,
-          lng: offer.location.lng,
+          lat: offer.location.latitude,
+          lng: offer.location.longitude,
         });
 
         marker
