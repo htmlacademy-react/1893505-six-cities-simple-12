@@ -1,5 +1,5 @@
 import { Main } from '../../pages/main/main';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { Login } from '../../pages/login/login';
 import { Room } from '../../pages/room/room';
@@ -7,6 +7,8 @@ import { ErrorPage } from '../../pages/error-page/error-page';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { store } from '../../store';
 import { Spinner } from '../spinner/spinner';
+import HistoryRouter from '../history-router/history-router';
+import browserHistory from '../../browser-history';
 
 function App(): JSX.Element {
   const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
@@ -22,7 +24,7 @@ function App(): JSX.Element {
   }
 
   return (
-    <BrowserRouter>
+    <HistoryRouter history={browserHistory}>
       <Routes>
         <Route
           path={AppRoute.Main}
@@ -41,7 +43,7 @@ function App(): JSX.Element {
           element={<ErrorPage />}
         />
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   );
 }
 

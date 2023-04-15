@@ -1,4 +1,20 @@
+import { useState } from 'react';
+import { store } from '../../store';
+import { authorization } from '../../store/action';
+import { AuthData } from '../../types/user-data';
+
 export function Login(): JSX.Element {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const onClickSignIn = (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    ev.preventDefault();
+    const object: AuthData = {
+      email, password
+    };
+    store.dispatch(authorization(object));
+  };
+
   return (
     <div className="page page--gray page--login">
       <div style={{display: 'none'}}>
@@ -24,13 +40,17 @@ export function Login(): JSX.Element {
             <form className="login__form form" action="#" method="post">
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">E-mail</label>
-                <input className="login__input form__input" type="email" name="email" placeholder="Email" required/>
+                <input value={email} className="login__input form__input"
+                  type="email" name="email" placeholder="Email" required onChange={(ev) => {setEmail(ev.target.value);}}
+                />
               </div>
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">Password</label>
-                <input className="login__input form__input" type="password" name="password" placeholder="Password" required/>
+                <input value={password} className="login__input form__input"
+                  type="password" name="password" placeholder="Password" required onChange={(ev) => {setPassword(ev.target.value);}}
+                />
               </div>
-              <button className="login__submit form__submit button" type="submit">Sign in</button>
+              <button className="login__submit form__submit button" type="submit" onClick={(ev) => onClickSignIn(ev)}>Sign in</button>
             </form>
           </section>
           <section className="locations locations--login locations--current">
